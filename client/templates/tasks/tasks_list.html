@@ -1,0 +1,30 @@
+<template name="tasksList">
+
+  <div class="page tasks-list">
+
+    {{> nav }}
+    
+    <div class="content-scrollable">
+      <!-- {{#if currentUser}}
+        <header>
+      
+          <label class="show-completed">
+            <input type="checkbox" checked="{{showCompleted}}" />
+            显示已完成
+          </label>
+        
+          <form class="new-task">
+            <input type="date" name="date" required>
+            <input type="number" name="number" min="1" placeholder="团队人数" required>
+            <input type="submit" value="提交">
+          </form>
+        </header>
+      {{/if}} -->
+      <ul>
+        {{#each tasks}}
+          {{> taskItem}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</template>

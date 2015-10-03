@@ -1,0 +1,15 @@
+<template name="layout">
+  {{> welcome }}
+
+  <div id="container" class="{{menuOpen}}">
+
+    {{> menu }}
+  
+    {{> overlay }}
+  
+    <div id="content-container">
+
+      {{> yield}}
+    </div>
+  </div>
+</template>

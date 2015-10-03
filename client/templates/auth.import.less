@@ -1,0 +1,109 @@
+.page.auth, 
+.page.task-new,
+.page.task-edit-task,
+.page.bill-new,
+.page.bill-edit {
+  text-align: center;
+
+  .content-scrollable { background: @color-tertiary; }
+
+  .wrapper-auth {
+    padding-top: 2em;
+
+    /* @media screen and (min-width: 40em) {
+      margin: 0 auto;
+      max-width: 480px;
+      width: 80%;
+    } */
+
+    .title-auth {
+      .font-m2;
+      .type-light;
+      color: @color-ancillary;
+      margin-bottom: 3rem;
+    }
+
+    .subtitle-auth {
+      color: @color-medium-well;
+      margin: 0 15% 3rem;
+    }
+
+    form {
+      .input-symbol {
+        margin-bottom: 1px;
+        width: 100%;
+        background-color: #fff;
+      }
+
+      .input-half {
+        width: 50%;
+        display: block;
+      }
+
+      .input-h {
+        width: 26%;
+        display: block;
+      }
+
+      .input-last {
+        width: 34%;
+        display: block;
+        input {
+          padding-left: 0.3rem;
+          padding-right: 0.3rem;
+        }
+      }
+
+      .input-right {
+        float: right;
+      }
+
+      .input-span {
+        width: 50%;
+        display: block;
+        float: right;
+        background: transparent !important;
+        font-weight: 800;
+        padding: .4rem 0;
+      }
+
+      .btn-primary,
+      .btn-remove {
+        margin: 1em 5% 0;
+        width: 90%;
+
+        /* @media screen and (min-width: 40em) {
+          margin-left: 0;
+          margin-right: 0;
+          width: 100%;
+        } */
+      }
+    }
+    .list-errors {
+      margin-top: -2rem;
+      .list-item {
+        .title-caps;
+        background: @color-note;
+        color: @color-negative;
+        font-size: .625em; // 10px
+        margin-bottom: 1px;
+        padding: .3rem 0;
+      }
+    }
+  }
+
+  .link-auth-alt {
+    .font-s1;
+    //.position(absolute, auto, 0, 2rem, 0);
+    color: @color-medium;
+    display: inline-block;
+    margin: 1rem;
+    padding: 1rem;
+
+    /* @media screen and (min-width: 40em) {
+      bottom: 0;
+      margin-top: 1rem;
+      position: relative;
+    } */
+  }
+}

@@ -1,0 +1,86 @@
+<template name="billEdit">
+  <div class="page bill-edit">
+
+    {{> nav }}
+    
+    <div class="content-scrollable">
+      <div class="wrapper-auth">
+        <form>
+          {{#if errorMessages}}
+            <div class="list-errors">
+              {{#each errorMessages}}
+                <div class="list-item">{{this}}</div>
+              {{/each}}
+            </div>
+          {{/if}}
+          
+          <div class="input-symbol {{errorClass 'datetime'}}">
+            <input type="datetime-local" name="datetime" value="{{formatDateToTimeT datetime}}" placeholder="时间" />
+            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+          </div>
+
+          <div>
+            <div class="input-symbol input-span {{errorClass 'number'}}">
+              <span>{{number}}</span> 元
+            </div>
+
+            <div class="input-symbol input-half">
+              <select id="project" name="project" style="width: 70%;">
+                {{#each projects}}
+                  {{> projectOption}}
+                {{/each}}
+              </select>
+              <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+            </div>
+            <div style="clear: both;"></div>
+          </div>
+
+          <ul class="project-ul">
+            {{#each billProjectItems}}
+              {{> billProjectItem}}
+            {{/each}}
+          </ul>
+
+          <ul class="project-item-ul">
+            <li style="background: #fff; border:none;">
+              <button class="project-item-new">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              </button>
+            </li>
+          </ul>
+
+
+          <div class="input-symbol">
+            <textarea name="note" id="note" rows="3" placeholder="项目备注">{{note}}</textarea>
+          </div>
+
+          <!-- <div class="input-symbol">
+            <select id="notetemp">
+              <option value ="快捷备注模板">快捷备注模板</option>
+              <option value ="放大范德萨范德萨范德萨范德萨范德萨范德萨发达范德萨范德萨范德萨分飞洒范德萨分范德萨范德萨">放大范德萨范德萨范德萨范德萨范德萨范德萨发达范德萨范德萨范德萨分飞洒范德萨分范德萨范德萨</option>
+              <option value ="萨范德萨范德萨范德萨范德萨发达范德萨范德萨范德萨分飞洒范德萨分范德萨范德萨">萨范德萨范德萨范德萨范德萨发达范德萨范德萨范德萨分飞洒范德萨分范德萨范德萨</option>
+            </select>
+            <span class="glyphicon glyphicon-paste" aria-hidden="true"></span>
+          </div> -->
+
+          <button type="button" class="btn-remove" style="width: 40%; float: left;">删除</button>
+          <button type="submit" class="btn-primary" style="width:40%; float:right;">修改</button>
+        </form>
+      </div>
+      
+      <a href="/tasks/{{taskId}}/editpage" class="link-auth-alt">直接返回</a>
+
+      <!-- <ul class="task-edit-page-new">
+        <li style="border:none;">
+          <button class="billnew" style="position: absolute; left: 0;">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+          </button>
+          <span class="text center cursor-pointer" style="margin-left: 0">
+            直接返回
+          </span>
+        </li>
+      </ul> -->
+
+    </div>
+  </div>
+</template>

@@ -1,0 +1,16 @@
+<template name="nav">
+  <nav>
+    <div class="nav-group">
+      <a class="nav-item js-menu" href="#">
+        <span class="glyphicon glyphicon-th-list"></span>
+      </a>
+    </div>
+    {{#if isEmployeeAndInTasksListRounte}}
+      <div class="nav-group right">
+        <a class="nav-item" href="{{pathFor 'taskNew'}}">
+          <span class="glyphicon glyphicon-plus"></span>
+        </a>
+      </div>
+    {{/if}}
+  </nav>
+</template>

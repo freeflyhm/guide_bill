@@ -1,0 +1,36 @@
+<template name="taskNew">
+  <div class="page task-new">
+
+    {{> nav }}
+    
+    <div class="content-scrollable">
+      <div class="wrapper-auth">
+        <h1 class="title-auth">添加账单</h1>
+
+        <form>
+          {{#if errorMessages}}
+            <div class="list-errors">
+              {{#each errorMessages}}
+                <div class="list-item">{{this}}</div>
+              {{/each}}
+            </div>
+          {{/if}}
+
+          <div class="input-symbol {{errorClass 'date'}}">
+            <input type="date" name="date" placeholder="日期" />
+            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+          </div>
+
+          <div class="input-symbol {{errorClass 'number'}}">
+            <input type="number" name="number" min=1 placeholder="团队人数" />
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          </div>
+
+          <button type="submit" class="btn-primary">添加</button>
+        </form>
+      </div>
+
+      <a href="{{pathFor 'tasksList'}}" class="link-auth-alt">返回账单列表</a>
+    </div>
+  </div>
+</template>

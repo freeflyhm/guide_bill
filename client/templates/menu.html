@@ -1,0 +1,47 @@
+<template name="menu">
+  <section id="menu">
+    {{#if currentUser}}
+      <div class="btns-group-vertical">
+        <a href="#" class="js-user-menu btn-secondary">
+          {{#if userMenuOpen}}
+            <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+            {{else}}
+            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+          {{/if}}
+          {{username}}
+        </a>
+        {{#if userMenuOpen}}
+          <a class="js-logout btn-secondary">登出</a>
+        {{/if}}
+      </div>
+    {{else}}
+      <div class="btns-group">
+        <a href="{{pathFor 'signin'}}" class="btn-secondary">登录</a>
+        <a href="{{pathFor 'join'}}" class="btn-secondary">注册</a>
+      </div>
+    {{/if}}
+    
+    <a href="{{pathFor 'tasksList'}}" class="{{activePage 'tasksList'}}">
+      <span class="wrapper-menu-item">
+        <span class="glyphicon glyphicon-stats"></span>
+        <span class="title-menu">账单</span>
+      </span>
+    </a>
+    
+    {{#if isAdmin}}
+      <a href="{{pathFor 'projectsList'}}" class="{{activePage 'projectsList'}}">
+        <span class="wrapper-menu-item">
+          <span class="glyphicon glyphicon-list-alt"></span>
+          <span class="title-menu">项目</span>
+        </span>
+      </a>
+    {{/if}}
+
+    <a href="{{pathFor 'about'}}" class="{{activePage 'about'}}">
+      <span class="wrapper-menu-item">
+        <span class="glyphicon glyphicon-home"></span>
+        <span class="title-menu">关于</span>
+      </span>
+    </a>
+  </section>
+</template>

@@ -1,0 +1,21 @@
+<template name="billProjectItem">
+  <li class="project-li">
+    <button class="delete">
+      <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+    </button>
+
+    <div class="input-symbol input-last input-right">
+      <input class="item-note" type="text" value={{note}} placeholder="备注" />
+    </div>
+
+    <div class="input-symbol input-h input-right">
+      <input class="number-price number" type="number" value={{division number}} placeholder="人数" />
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+    </div>
+
+    <div class="input-symbol input-h input-right">
+      <input class="number-price price" type="number" value={{division price}} placeholder="单价" />
+      <span class="glyphicon glyphicon-yen" aria-hidden="true"></span>
+    </div>
+  </li>
+</template>

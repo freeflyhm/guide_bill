@@ -1,0 +1,36 @@
+<template name="taskEditTask">
+  <div class="page task-edit-task">
+
+    {{> nav }}
+    
+    <div class="content-scrollable">
+      <div class="wrapper-auth">
+        <h1 class="title-auth">修改账单</h1>
+
+        <form>
+          {{#if errorMessages}}
+            <div class="list-errors">
+              {{#each errorMessages}}
+                <div class="list-item">{{this}}</div>
+              {{/each}}
+            </div>
+          {{/if}}
+
+          <div class="input-symbol {{errorClass 'date'}}">
+            <input type="date" name="date" value="{{formatDate date}}" placeholder="日期" />
+            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+          </div>
+
+          <div class="input-symbol {{errorClass 'number'}}">
+            <input type="number" name="number" value="{{number}}" min=1 placeholder="团队人数" />
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          </div>
+
+          <button type="submit" class="btn-primary">修改</button>
+        </form>
+      </div>
+
+      <a href="{{pathFor 'taskEditPage' task}}" class="link-auth-alt">直接返回</a>
+    </div>
+  </div>
+</template>

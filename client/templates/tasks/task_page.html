@@ -1,0 +1,23 @@
+<template name="taskPage">
+  <div class="page task-page">
+
+    {{> nav }}
+    
+    <div class="content-scrollable">
+      <span class="text">
+        {{#unless isOwner userId}}
+          {{username}}
+        {{/unless}}
+        {{formatDateToYYMMDD date}}-{{number}}
+      </span>
+
+      <ul class="task-edit-page-new">
+        <li style="background: #fff; border:none;">
+          <span class="text center cursor-pointer">
+            返回账单列表
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>

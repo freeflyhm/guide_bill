@@ -1,0 +1,46 @@
+<template name="projectsList">
+
+  <div class="page projects-list">
+
+    {{> nav }}
+    
+    <div class="content-scrollable">
+      {{#if currentUser}}
+        <header>     
+          <form class="new-project">
+            <input style="width: 100%; padding-left: 12px;" type="text" name="project" placeholder="添加项目名称" required>
+          </form>
+        </header>
+      {{/if}}
+
+
+      <ul>
+        {{#each projects}}
+          {{> projectItem}}
+        {{/each}}
+      </ul>
+
+      <!-- <ul class="project-item-ul">
+        <li style="background: #fff; border:none;">
+          <button class="project-item-new">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          </button>
+        </li>
+      </ul> -->
+    </div>
+  </div>
+</template>
+
+<template name="projectItem">
+  <li>
+    {{#if isAdmin}}
+      <button class="edit">
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+      </button>
+    {{/if}}
+  
+    <span class="text" style="padding-left: 12px;">
+      {{project}}
+    </span>
+  </li>
+</template>
