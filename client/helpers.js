@@ -93,3 +93,32 @@ Handlebars.registerHelper('divisionWan', function(number) {
 Handlebars.registerHelper('timesPriceAndNumber', function(price, number) {
   return price * number / 10000;
 });
+
+Handlebars.registerHelper('billsTotalByProject', function(obj) {
+  var 
+    arr       = obj.fetch(),
+    obj       = {},
+    returnArr = [],
+    i, len, projectItem;
+
+  for(i = 0, len = arr.length; i < len; i++) {
+    projectItem = arr[i];
+
+    if (obj[projectItem.project]) {
+      obj[projectItem.project] += projectItem.number;
+    } else {
+      obj[projectItem.project] = projectItem.number;
+    }
+  }
+
+  for (prop in obj) {
+    if(obj.hasOwnProperty(prop)) {
+      returnArr.push({
+        project: prop,
+        number: obj[prop]
+      })
+    }
+  }
+
+  return returnArr;
+});

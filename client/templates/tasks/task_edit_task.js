@@ -20,7 +20,8 @@ Template.taskEditTask.events({
     // Get value from form element
     var date = event.target.date.value;
     var number = event.target.number.value;
-    
+    var title = event.target.title.value;
+
     var errors = {};
 
     if (! date) {
@@ -41,7 +42,8 @@ Template.taskEditTask.events({
       _id: this._id,
       properties: {
         date: new Date(date),
-        number: Number(number)
+        number: Number(number),
+        title: $.trim(title)
       }
     });
 

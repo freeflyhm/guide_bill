@@ -16,12 +16,15 @@
         <span class="checkbox-custom"></span>
       {{/if}}
     </label> -->
-  
-    <span class="text cursor-pointer">
+    <span class="text cursor-pointer" style="margin-bottom: 8px;">
+      <span style="position: absolute; margin-top: 20px; font-size: 80%; color: #999;">
+        {{title}}
+      </span>
       {{#unless isOwner userId}}
         {{username}}
       {{/unless}}
       {{formatDateToYYMMDD date}}-{{number}} <span class="glyphicon glyphicon-yen"></span>{{divisionWan price}}
     </span>
+    
   </li>
 </template>

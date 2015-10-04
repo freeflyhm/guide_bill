@@ -4,12 +4,35 @@
     {{> nav }}
     
     <div class="content-scrollable">
-      <span class="text">
-        {{#unless isOwner userId}}
-          {{username}}
-        {{/unless}}
-        {{formatDateToYYMMDD date}}-{{number}}
-      </span>
+      <ul class="task-edit-page-task">
+        <li class="{{statusClass status}}">
+          <span class="text" style="padding-left: 12px; margin-bottom: 8px;">
+            <span style="position: absolute; margin-top: 20px; font-size: 80%; color: #999;">
+              {{title}}
+            </span>
+            {{#unless isOwner userId}}
+              {{username}}
+            {{/unless}}
+            {{formatDateToYYMMDD date}}-{{number}} <span class="glyphicon glyphicon-yen"></span>{{divisionWan price}}
+          </span>
+        </li>
+      </ul>
+
+      <h3 style="padding: 8px 12px; background-color: #eee;">汇总</h3>
+
+      <ul class="billItem">        
+        {{#each billsTotalByProject billsTotal}}
+          {{> billsTotalItem}}
+        {{/each}}
+      </ul>
+
+      <h3 style="padding: 8px 12px; background-color: #eee;">明细</h3>
+
+      <ul class="billItem">
+        {{#each bills}}
+          {{> billItemReader}}
+        {{/each}}
+      </ul>
 
       <ul class="task-edit-page-new">
         <li style="background: #fff; border:none;">
@@ -20,4 +43,28 @@
       </ul>
     </div>
   </div>
+</template>
+
+<template name="billsTotalItem">
+  <li style="background-color: #fff;">
+    <span class="text" style="padding-left: 12px;">
+      {{project}}-{{divisionWan number}}
+    </span>
+  </li>
+</template>
+
+<template name="billItemReader">
+  <li style="background-color: #fff;">
+  
+    <span class="text" style="padding-left: 12px;">
+      {{formatDateToTime datetime}}-{{project}}-{{divisionWan number}}
+    </span>
+
+    {{#each billProjectItems}}
+      {{> projectItemBr}}
+    {{/each}}
+
+    <br>
+    <span style="padding-left: 12px;">{{note}}</span>
+  </li>
 </template>
